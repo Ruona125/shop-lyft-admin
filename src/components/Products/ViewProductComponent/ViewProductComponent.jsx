@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux/es";
 import { Link } from "react-router-dom";
-
 
 const ViewProductComponent = () => {
   const [products, setProducts] = useState([]);
-  const { isAuthenticated, user } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const url = "http://localhost:8000/product";
@@ -17,7 +13,19 @@ const ViewProductComponent = () => {
     });
   }, []);
 
- 
+//   const handleDelete = (productId) => {
+//     const url = `http://localhost:8000/product/${productId}`;
+    
+//     axios
+//       .delete(url)
+//       .then(() => {
+//         // Remove the deleted product from the state
+//         setProducts((prevProducts) => prevProducts.filter((product) => product._id !== productId));
+//       })
+//       .catch((error) => {
+//         console.error("Error deleting product: " + error);
+//       });
+//   };
 
   return (
     <div style={{ textAlign: "center" }}>
@@ -26,13 +34,14 @@ const ViewProductComponent = () => {
       {products.map((product) => (
         <div key={product._id}>
           <Link to={`/product/${product._id}`}>
-          <img width="200px" src={product.image} alt="hair" />
-          <p>Name: {product.name}</p>
-          <p>${product.price}</p>
-          <p>ratings: {product.ratings}</p>
+            <img width="200px" src={product.image} alt="hair" />
+            <p>Name: {product.name}</p>
+            <p>${product.price}</p>
+            <p>ratings: {product.ratings}</p>
+            {/* <button onClick={() => handleDelete(product._id)}>Delete</button> */}
+
           </Link>
           <br />
-         
         </div>
       ))}
     </div>
