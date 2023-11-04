@@ -8,6 +8,7 @@ import ViewProductPage from "./pages/ViewProduct/ViewProductPage"
 import ModifyProduct from "./pages/ModifyProduct/ModifyProduct"
 import ViewCertainProduct from "./pages/ViewCertainProdcut/ViewCertainProduct"
 import CreateProductComponent from "./components/Products/CreateProductComponent/CreateProductComponent"
+import ViewUser from "./pages/ViewUser/ViewUser"
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/create-product" element={<CreateProductComponent />} />
           <Route path="/modify-product/:id" element={<ModifyProduct />} />
           <Route path="/product/:id" element={<ViewCertainProduct />} />
+          <Route path="/users" element={<ViewUser />} />
 
         </Routes>
       </div>
