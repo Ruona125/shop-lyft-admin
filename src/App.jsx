@@ -7,6 +7,7 @@ import Wishlists from "./pages/Wishlists/Wishlists"
 import ViewProductPage from "./pages/ViewProduct/ViewProductPage"
 import ModifyProduct from "./pages/ModifyProduct/ModifyProduct"
 import CreateProduct from "./pages/CreateProduct/CreateProduct"
+import ViewCertainProduct from "./pages/ViewCertainProdcut/ViewCertainProduct"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/products" element={<ViewProductPage />} />
           <Route path="/create-product" element={<CreateProduct />} />
           <Route path="/modify-products/:id" element={<ModifyProduct />} />
+          <Route path="/product/:id" element={<ViewCertainProduct />} />
 
         </Routes>
       </div>
