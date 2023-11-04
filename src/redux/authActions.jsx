@@ -14,6 +14,7 @@ export const loginUser = (userData) => async (dispatch) => {
     });
 
     const data = await response.json();
+    // console.log(data)
 
     if (response.ok) {
       // Store tokens in localStorage

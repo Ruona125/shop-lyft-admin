@@ -14,14 +14,16 @@ const CreateProduct = () => {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const [reviews, setReviews] = useState("");
+  const [ratings, setRatings] = useState("")
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const token = useSelector((state) => state.auth.token)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = "hhttp://localhost:8000/product";
+    const url = "http://localhost:8000/product";
     const data = {
       name: name,
       category: category,
@@ -29,10 +31,11 @@ const CreateProduct = () => {
       description: description,
       image: image,
       reviews: reviews,
+      ratings: ratings,
     };
     const headers = {
       "Content-Type": "application/json",
-      //   Authorization: token,
+        Authorization: localStorage.getItem("token"),
     };
     setLoading(true);
 
@@ -60,6 +63,7 @@ const CreateProduct = () => {
   return (
     <div>
       <h2>Create Product</h2>
+      
       <Box
         sx={{
           "& > :not(style)": {
@@ -81,10 +85,6 @@ const CreateProduct = () => {
             color: "red",
           },
         }}
-        // style={{ display: "grid", marginTop: "23px" }}
-        // noValidate
-        // autoComplete="off"
-        // onSubmit={handleSubmit}
       >
         <form noValidate autoComplete="off" onSubmit={handleSubmit}>
           <TextField
@@ -106,6 +106,18 @@ const CreateProduct = () => {
             type="number"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
+            InputLabelProps={{ style: { color: "red" } }}
+          />
+          <br />
+          <br />
+
+          <TextField
+            id="outlined-basic"
+            label="ratings"
+            variant="outlined"
+            type="number"
+            value={ratings}
+            onChange={(e) => setRatings(e.target.value)}
             InputLabelProps={{ style: { color: "red" } }}
           />
           <br />
@@ -145,10 +157,12 @@ const CreateProduct = () => {
             onChange={(e) => setImage(e.target.value)}
             InputLabelProps={{ style: { color: "red" } }}
           />
+          <br />
+          <br />
 
           <TextField
             id="outlined-basic"
-            label="description"
+            label="reviews"
             variant="outlined"
             type="text"
             value={reviews}

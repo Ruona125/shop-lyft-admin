@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux/es'
 
 const HomePage = () => {
     const user = useSelector((state) => state.auth.user)
+    // console.log(user)
     
   return (
     <div>
