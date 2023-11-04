@@ -13,19 +13,19 @@ const ViewProductComponent = () => {
     });
   }, []);
 
-//   const handleDelete = (productId) => {
-//     const url = `http://localhost:8000/product/${productId}`;
-    
-//     axios
-//       .delete(url)
-//       .then(() => {
-//         // Remove the deleted product from the state
-//         setProducts((prevProducts) => prevProducts.filter((product) => product._id !== productId));
-//       })
-//       .catch((error) => {
-//         console.error("Error deleting product: " + error);
-//       });
-//   };
+  //   const handleDelete = (productId) => {
+  //     const url = `http://localhost:8000/product/${productId}`;
+
+  //     axios
+  //       .delete(url)
+  //       .then(() => {
+  //         // Remove the deleted product from the state
+  //         setProducts((prevProducts) => prevProducts.filter((product) => product._id !== productId));
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error deleting product: " + error);
+  //       });
+  //   };
 
   return (
     <div style={{ textAlign: "center" }}>
@@ -39,7 +39,9 @@ const ViewProductComponent = () => {
             <p>${product.price}</p>
             <p>ratings: {product.ratings}</p>
             {/* <button onClick={() => handleDelete(product._id)}>Delete</button> */}
-
+          </Link>
+          <Link to={`/modify-product/${product._id}`}>
+            <button>Modify</button>
           </Link>
           <br />
         </div>

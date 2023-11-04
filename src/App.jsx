@@ -21,7 +21,7 @@ function App() {
           <Route path="/wishlists" element={<Wishlists />} />
           <Route path="/products" element={<ViewProductPage />} />
           <Route path="/create-product" element={<CreateProduct />} />
-          <Route path="/modify-products/:id" element={<ModifyProduct />} />
+          <Route path="/modify-product/:id" element={<ModifyProduct />} />
           <Route path="/product/:id" element={<ViewCertainProduct />} />
 
         </Routes>
