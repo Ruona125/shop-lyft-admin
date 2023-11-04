@@ -1,52 +1,54 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { login } from '../../redux/authSlice';
-import { useNavigate } from 'react-router-dom';
+// Login.js
 
-const LoginComponent = () => {
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, Link } from "react-router-dom";
+import { loginUser } from '../../Redux/authActions';
+
+function LoginComponent() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate()
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    // You should make an API request to your login endpoint here.
-    // Example:
-    const response = await fetch('http://localhost:8000/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
     });
-
-    if (response.status === 201) {
-      const data = await response.json();
-      console.log(data.user.email)
-      dispatch(login(data.user));
-      navigate("/home")
-    } else {
-      // Handle login error here.
-    }
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(loginUser(formData));
+  };
+
+  useEffect(() => {
+    if (isAuthenticated){
+      navigate("/home")
+    }
+  }, [isAuthenticated, navigate])
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Username"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          name="email"
+          placeholder="email"
+          onChange={handleInputChange}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={handleInputChange}
+        />
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
-};
+}
 
 export default LoginComponent;

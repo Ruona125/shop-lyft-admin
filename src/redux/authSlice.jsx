@@ -1,25 +1,47 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  isAuthenticated: false,
-  user: null,
-};
-
 const authSlice = createSlice({
   name: 'auth',
-  initialState,
+  initialState: {
+    user: null,
+    isAuthenticated: false,
+    isLoading: false,
+    error: null,
+    token: null,
+    refreshToken: null,
+  },
   reducers: {
-    login: (state, action) => {
-      state.isAuthenticated = true;
+    setUser: (state, action) => {
       state.user = action.payload;
+      state.isAuthenticated = true;
     },
-    logout: (state) => {
-      state.isAuthenticated = false;
+    setLoading: (state, action) => {
+      state.isLoading = action.payload;
+    },
+    setToken: (state, action) => {
+      state.token = action.payload;
+    },
+    setRefreshToken: (state, action) => {
+      state.token = action.payload;
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
+    },
+    clearUser: (state) => {
       state.user = null;
+      state.isAuthenticated = false;
+      state.token = null;
     },
   },
 });
 
-export const { login, logout } = authSlice.actions;
-
+export const { setUser, setLoading, setError, clearUser, setToken, setRefreshToken } = authSlice.actions;
 export default authSlice.reducer;
+
+export const logout = () => (dispatch) => {
+  // You can perform any necessary cleanup or API calls here if needed
+  // For a simple logout, just dispatch clearUser
+  dispatch(clearUser());
+};
+
+
