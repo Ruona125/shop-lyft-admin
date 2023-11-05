@@ -43,6 +43,7 @@ const ViewOrderComponent = () => {
             <p>Category: {order.productDetails.category}</p>
             <p>Ratings: {order.productDetails.ratings}</p>
             <p>Quantity: {order.quantity}</p>
+            <p>Total Amount: {order.productDetails.price * order.quantity}</p>
           </li>
         ))}
       </ul>
