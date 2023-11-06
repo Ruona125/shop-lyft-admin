@@ -16,7 +16,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/modify-order/:id" element={<ModifyOrder />} />
           <Route path="/orders" element={<ViewOrder />} />
           <Route path="/wishlists" element={<Wishlists />} />
