@@ -62,7 +62,8 @@ import axios from 'axios';
 import { Paper, TableContainer, Table, TableHead, TableRow, TableBody } from '@mui/material';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
-
+import EditIcon from '@mui/icons-material/Edit';
+import {Link} from "react-router-dom"
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -131,6 +132,7 @@ function ViewOrderComponent() {
             <StyledTableCell>Quantity</StyledTableCell>
             <StyledTableCell>Price</StyledTableCell>
             <StyledTableCell>Sub total</StyledTableCell>
+            <StyledTableCell>Edit</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -147,6 +149,7 @@ function ViewOrderComponent() {
               <StyledTableCell>{row.quantity}</StyledTableCell>
               <StyledTableCell>${row.productDetails.price}</StyledTableCell>
               <StyledTableCell>${row.productDetails.price * row.quantity}</StyledTableCell>
+              <StyledTableCell><Link to={`/modify-product/${row._id}`}><EditIcon /></Link></StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
