@@ -122,7 +122,7 @@ function NavbarComponent() {
         </DrawerHeader>
         <Divider />
         <List>
-          {["products", "orders", "Send email", "Drafts"].map((text, index) => (
+          {["products", "orders", "users", "create-product"].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
