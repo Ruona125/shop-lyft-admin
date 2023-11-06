@@ -102,7 +102,7 @@ const ModifyProductComponent = () => {
         }}
       >
         <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-          <TextField
+          {/* <TextField
             id="outlined-basic"
             label="product name"
             variant="outlined"
@@ -110,7 +110,8 @@ const ModifyProductComponent = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             InputLabelProps={{ style: { color: "red" } }}
-          />
+          /> */}
+          <p>{name}</p>
           <br />
           <br />
 
