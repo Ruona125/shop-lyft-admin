@@ -116,34 +116,43 @@ function ViewOrderComponent() {
   }
 
   return (
+    <>
+    <p>Orders</p>
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+      <Table sx={{ minWidth: 400 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Order ID</StyledTableCell>
+            {/* <StyledTableCell>Order ID</StyledTableCell> */}
             <StyledTableCell>Username</StyledTableCell>
+            <StyledTableCell>Email</StyledTableCell>
             <StyledTableCell>Status</StyledTableCell>
             <StyledTableCell>Product Name</StyledTableCell>
-            <StyledTableCell>Price</StyledTableCell>
+            <StyledTableCell>Category</StyledTableCell>
             <StyledTableCell>Quantity</StyledTableCell>
+            <StyledTableCell>Price</StyledTableCell>
+            <StyledTableCell>Sub total</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row, index) => (
             <StyledTableRow key={index}>
-              <StyledTableCell component="th" scope="row">
+              {/* <StyledTableCell component="th" scope="row">
                 {row._id}
-              </StyledTableCell>
+              </StyledTableCell> */}
               <StyledTableCell>{row.user.username}</StyledTableCell>
+              <StyledTableCell>{row.user.email}</StyledTableCell>
               <StyledTableCell>{row.status}</StyledTableCell>
               <StyledTableCell>{row.productDetails.name}</StyledTableCell>
-              <StyledTableCell>{row.productDetails.price}</StyledTableCell>
+              <StyledTableCell>{row.productDetails.category}</StyledTableCell>
               <StyledTableCell>{row.quantity}</StyledTableCell>
+              <StyledTableCell>${row.productDetails.price}</StyledTableCell>
+              <StyledTableCell>${row.productDetails.price * row.quantity}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
+    </>
   );
 }
 
