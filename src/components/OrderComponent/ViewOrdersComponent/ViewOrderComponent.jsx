@@ -11,18 +11,15 @@ import {
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
 import EditIcon from "@mui/icons-material/Edit";
-import { Link, useParams } from "react-router-dom";
-import { TextField, Button } from "@mui/material";
-import CircularProgress from "@mui/material/CircularProgress";
+import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import Fade from "@mui/material/Fade";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Backdrop from "@mui/material/Backdrop";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -62,7 +59,6 @@ function ViewOrderComponent() {
   const [error, setError] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
   const [updatedStatus, setUpdatedStatus] = useState("");
-  const { id } = useParams();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -207,18 +203,18 @@ function ViewOrderComponent() {
               onChange={(e) => setUpdatedStatus(e.target.value)} // Update updatedStatus
             /> */}
             <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={updatedStatus}
-          label="Age"
-          onChange={handleChange}
-        >
-          <MenuItem value={"pending"}>pending</MenuItem>
-          <MenuItem value={"delivered"}>delivered</MenuItem>
-        </Select>
-      </FormControl>
+              <InputLabel id="demo-simple-select-label">Age</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={updatedStatus}
+                label="Age"
+                onChange={handleChange}
+              >
+                <MenuItem value={"pending"}>pending</MenuItem>
+                <MenuItem value={"delivered"}>delivered</MenuItem>
+              </Select>
+            </FormControl>
 
             <Button onClick={handleUpdate}>Update</Button>
           </Box>
