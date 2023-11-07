@@ -63,7 +63,7 @@ function ViewOrderComponent() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  useEffect(() => {
+  const fetchData = () => {
     // Fetch the data from the API using Axios
     const apiUrl = "http://localhost:8000/user/order";
     const headers = {
@@ -80,6 +80,10 @@ function ViewOrderComponent() {
         setError(err); // Set the error state if there's an error
         setLoading(false); // Set loading to false
       });
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   const handleUpdate = () => {
@@ -95,8 +99,8 @@ function ViewOrderComponent() {
       .then((response) => {
         // Handle a successful update
         handleClose(); // Close the modal
-        // You may want to refresh the data after the update
-        // You can do this by making another GET request and updating the rows state.
+        // Refresh the data after the update
+        fetchData();
       })
       .catch((err) => {
         // Handle errors
@@ -159,7 +163,6 @@ function ViewOrderComponent() {
                 <StyledTableCell>
                   ${row.productDetails.price * row.quantity}
                 </StyledTableCell>
-                {/* <StyledTableCell><Link to={`/modify-order/${row._id}`}><EditIcon /></Link></StyledTableCell> */}
                 <StyledTableCell>
                   <EditIcon
                     onClick={() => {
