@@ -19,6 +19,10 @@ import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Backdrop from "@mui/material/Backdrop";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -62,6 +66,10 @@ function ViewOrderComponent() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const handleChange = (event) => {
+    setUpdatedStatus(event.target.value);
+  };
 
   const fetchData = () => {
     // Fetch the data from the API using Axios
@@ -192,12 +200,25 @@ function ViewOrderComponent() {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <TextField
+            {/* <TextField
               label="status"
               value={updatedStatus} // Use updatedStatus as the value
               type="text"
               onChange={(e) => setUpdatedStatus(e.target.value)} // Update updatedStatus
-            />
+            /> */}
+            <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={updatedStatus}
+          label="Age"
+          onChange={handleChange}
+        >
+          <MenuItem value={"pending"}>pending</MenuItem>
+          <MenuItem value={"delivered"}>delivered</MenuItem>
+        </Select>
+      </FormControl>
 
             <Button onClick={handleUpdate}>Update</Button>
           </Box>
