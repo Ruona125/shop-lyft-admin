@@ -22,7 +22,7 @@ const ViewProductComponent = () => {
         {products.map((product) => (
           <div key={product._id}>
             <Link to={`/product/${product._id}`}>
-              <img width="200px" src={product.image} alt="hair" />
+              <img width="200px" src={product.imageLink} alt="hair" />
               <p>Name: {product.name}</p>
               <p>${product.price}</p>
               <p>ratings: {product.ratings}</p>
