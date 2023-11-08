@@ -34,7 +34,7 @@ const CreateProductComponent = () => {
       ratings: ratings,
     };
     const headers = {
-      "Content-Type": "application/json",
+      "Content-Type": "multipart/form-data",
       Authorization: localStorage.getItem("token"),
     };
     setLoading(true);
@@ -59,6 +59,11 @@ const CreateProductComponent = () => {
       setLoading(false);
       setError("An error occurred, please try again");
     }
+  };
+
+  const fileSelected = (event) => {
+    const file = event.target.files[0];
+    setImage(file);
   };
   return (
     <div>
@@ -148,7 +153,7 @@ const CreateProductComponent = () => {
           <br />
           <br />
 
-          <TextField
+          {/* <TextField
             id="outlined-basic"
             label="image"
             variant="outlined"
@@ -156,6 +161,14 @@ const CreateProductComponent = () => {
             value={image}
             onChange={(e) => setImage(e.target.value)}
             InputLabelProps={{ style: { color: "red" } }}
+          /> */}
+
+          <input
+            onChange={fileSelected}
+            type="file"
+            name="image"
+            accept="image/*"
+            style={{ paddingBottom: "23px" }}
           />
           <br />
           <br />
