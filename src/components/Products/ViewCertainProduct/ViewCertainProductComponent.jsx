@@ -15,7 +15,7 @@ const ViewCertainProductComponent = () => {
   return (
     <div>
       <h3>Certain Product</h3>
-      <img width="200px" src={certainProducts.image} alt="hair" />
+      <img width="200px" src={certainProducts.imageLink} alt="hair" />
       <p>Name: {certainProducts.name}</p>
       <p>$ {certainProducts.price}</p>
       <p>ratings: {certainProducts.ratings}</p>
