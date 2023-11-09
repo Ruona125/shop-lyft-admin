@@ -3,6 +3,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { TextField, Button } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import Box from "@mui/material/Box";
 
 const ModifyProductComponent = () => {
@@ -15,6 +19,7 @@ const ModifyProductComponent = () => {
   const [image, setImage] = useState("");
 //   const [reviews, setReviews] = useState("");
   const [ratings, setRatings] = useState("");
+  const [inStock, setInStock] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -27,7 +32,7 @@ const ModifyProductComponent = () => {
       Authorization: localStorage.getItem("token"),
     };
     axios.get(url, { headers }).then((response) => {
-      const { name, category, price, description, image, ratings } =
+      const { name, category, price, description, image, ratings, inStock } =
         response.data;
       setName(name);
       setCategory(category);
@@ -35,6 +40,7 @@ const ModifyProductComponent = () => {
       setRatings(ratings)
       setDescription(description);
       setImage(image);
+      setInStock(inStock)
     });
   }, [id]);
 
@@ -49,6 +55,7 @@ const ModifyProductComponent = () => {
       image: image,
     //   reviews: reviews,
       ratings: ratings,
+      inStock: inStock
     };
     const headers = {
       "Content-Type": "application/json",
@@ -63,6 +70,7 @@ const ModifyProductComponent = () => {
         setPrice("");
         setDescription("");
         setImage("");
+        setInStock("")
         // setReviews("");
         setLoading(false);
         navigate("/products");
@@ -87,17 +95,17 @@ const ModifyProductComponent = () => {
           },
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
-              borderColor: "red",
+              borderColor: "blue",
             },
             "&:hover fieldset": {
-              borderColor: "red",
+              borderColor: "blue",
             },
             "&.Mui-focused fieldset": {
-              borderColor: "red",
+              borderColor: "blue",
             },
           },
           "& .MuiInputLabel-root": {
-            color: "red",
+            color: "blue",
           },
         }}
       >
@@ -109,7 +117,7 @@ const ModifyProductComponent = () => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            InputLabelProps={{ style: { color: "red" } }}
+            InputLabelProps={{ style: { color: "blue" } }}
           /> */}
           <p>{name}</p>
           <br />
@@ -122,7 +130,7 @@ const ModifyProductComponent = () => {
             type="number"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            InputLabelProps={{ style: { color: "red" } }}
+            InputLabelProps={{ style: { color: "blue" } }}
           />
           <br />
           <br />
@@ -134,7 +142,7 @@ const ModifyProductComponent = () => {
             type="number"
             value={ratings}
             onChange={(e) => setRatings(e.target.value)}
-            InputLabelProps={{ style: { color: "red" } }}
+            InputLabelProps={{ style: { color: "blue" } }}
           />
           <br />
           <br />
@@ -146,7 +154,7 @@ const ModifyProductComponent = () => {
             type="text"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            InputLabelProps={{ style: { color: "red" } }}
+            InputLabelProps={{ style: { color: "blue" } }}
           />
           <br />
           <br />
@@ -158,21 +166,39 @@ const ModifyProductComponent = () => {
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            InputLabelProps={{ style: { color: "red" } }}
+            InputLabelProps={{ style: { color: "blue" } }}
           />
 
           <br />
           <br />
 
-          <TextField
+          {/* <TextField
             id="outlined-basic"
             label="image"
             variant="outlined"
             type="text"
             value={image}
             onChange={(e) => setImage(e.target.value)}
-            InputLabelProps={{ style: { color: "red" } }}
+            InputLabelProps={{ style: { color: "blue" } }}
           />
+          <br />
+          <br /> */}
+
+          <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">inStock</InputLabel>
+          <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={inStock}
+          label="inStock"
+          onChange={(e) => setInStock(e.target.value)}
+        >
+          <MenuItem value="true">true</MenuItem>
+          <MenuItem value="false">false</MenuItem>
+          {/* <MenuItem value={30}>Thirty</MenuItem> */}
+        </Select>
+
+          </FormControl>
           <br />
           <br />
 
@@ -183,12 +209,12 @@ const ModifyProductComponent = () => {
             type="text"
             value={reviews}
             onChange={(e) => setReviews(e.target.value)}
-            InputLabelProps={{ style: { color: "red" } }}
+            InputLabelProps={{ style: { color: "blue" } }}
           /> */}
 
           <center>
             {loading ? (
-              <CircularProgress style={{ color: "red" }} />
+              <CircularProgress style={{ color: "blue" }} />
             ) : (
               <Button
                 type="submit"
@@ -196,14 +222,14 @@ const ModifyProductComponent = () => {
                 className="login-button"
                 style={{
                   color: "#fff",
-                  backgroundColor: "red",
+                  backgroundColor: "blue",
                   marginTop: "23px",
                 }}
               >
                 Modify Product
               </Button>
             )}
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {error && <p style={{ color: "blue" }}>{error}</p>}
           </center>
         </form>
       </Box>

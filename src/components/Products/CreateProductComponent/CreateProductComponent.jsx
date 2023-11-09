@@ -4,7 +4,10 @@ import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import CircularProgress from "@mui/material/CircularProgress";
-import { useSelector } from "react-redux";
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import { Button } from "@mui/material";
 
 const CreateProductComponent = () => {
@@ -52,12 +55,12 @@ const CreateProductComponent = () => {
         navigate("/products");
       } else {
         console.log("error sending data");
-        setError("An error occurred, please try again");
+        setError("An error occurblue, please try again");
       }
     } catch (err) {
       console.log(err);
       setLoading(false);
-      setError("An error occurred, please try again");
+      setError("An error occurblue, please try again");
     }
   };
 
@@ -77,17 +80,17 @@ const CreateProductComponent = () => {
           },
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
-              borderColor: "red",
+              borderColor: "blue",
             },
             "&:hover fieldset": {
-              borderColor: "red",
+              borderColor: "blue",
             },
             "&.Mui-focused fieldset": {
-              borderColor: "red",
+              borderColor: "blue",
             },
           },
           "& .MuiInputLabel-root": {
-            color: "red",
+            color: "blue",
           },
         }}
       >
@@ -99,7 +102,7 @@ const CreateProductComponent = () => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            InputLabelProps={{ style: { color: "red" } }}
+            InputLabelProps={{ style: { color: "blue" } }}
           />
           <br />
           <br />
@@ -111,7 +114,7 @@ const CreateProductComponent = () => {
             type="number"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            InputLabelProps={{ style: { color: "red" } }}
+            InputLabelProps={{ style: { color: "blue" } }}
           />
           <br />
           <br />
@@ -123,20 +126,34 @@ const CreateProductComponent = () => {
             type="number"
             value={ratings}
             onChange={(e) => setRatings(e.target.value)}
-            InputLabelProps={{ style: { color: "red" } }}
+            InputLabelProps={{ style: { color: "blue" } }}
           />
           <br />
           <br />
 
-          <TextField
+          {/* <TextField
             id="outlined-basic"
             label="category"
             variant="outlined"
             type="text"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            InputLabelProps={{ style: { color: "red" } }}
-          />
+            InputLabelProps={{ style: { color: "blue" } }}
+          /> */}
+          <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Category</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={category}
+          label="Category"
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <MenuItem value="Hair">Hair</MenuItem>
+          <MenuItem value="Gift Boxes">Gift Boxes</MenuItem>
+          {/* <MenuItem value={30}>Thirty</MenuItem> */}
+        </Select>
+      </FormControl>
           <br />
           <br />
 
@@ -147,7 +164,7 @@ const CreateProductComponent = () => {
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            InputLabelProps={{ style: { color: "red" } }}
+            InputLabelProps={{ style: { color: "blue" } }}
           />
 
           <br />
@@ -160,7 +177,7 @@ const CreateProductComponent = () => {
             type="text"
             value={image}
             onChange={(e) => setImage(e.target.value)}
-            InputLabelProps={{ style: { color: "red" } }}
+            InputLabelProps={{ style: { color: "blue" } }}
           /> */}
 
           <input
@@ -180,12 +197,12 @@ const CreateProductComponent = () => {
             type="text"
             value={reviews}
             onChange={(e) => setReviews(e.target.value)}
-            InputLabelProps={{ style: { color: "red" } }}
+            InputLabelProps={{ style: { color: "blue" } }}
           />
 
           <center>
             {loading ? (
-              <CircularProgress style={{ color: "red" }} />
+              <CircularProgress style={{ color: "blue" }} />
             ) : (
               <Button
                 type="submit"
@@ -193,14 +210,14 @@ const CreateProductComponent = () => {
                 className="login-button"
                 style={{
                   color: "#fff",
-                  backgroundColor: "red",
+                  backgroundColor: "blue",
                   marginTop: "23px",
                 }}
               >
                 Create Product
               </Button>
             )}
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {error && <p style={{ color: "blue" }}>{error}</p>}
           </center>
         </form>
       </Box>
