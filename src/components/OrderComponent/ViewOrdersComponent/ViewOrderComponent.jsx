@@ -122,7 +122,9 @@ function ViewOrderComponent() {
 
   return (
     <>
+    <center>
       <p>Orders</p>
+      </center>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 400 }} aria-label="customized table">
           <TableHead>
