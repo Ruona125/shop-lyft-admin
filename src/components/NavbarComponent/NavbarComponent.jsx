@@ -93,8 +93,11 @@ function NavbarComponent() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Persistent drawer
+          <Typography variant="h6" noWrap component="div" style={{fontFamily: "Quicksand, sans-serif"}}>
+            Bucollection
+          </Typography>
+          <Typography variant="h6" noWrap component="div" style={{fontFamily: "Quicksand, sans-serif", alignContent:"right"}}>
+            Admin
           </Typography>
         </Toolbar>
       </AppBar>
@@ -120,14 +123,16 @@ function NavbarComponent() {
             )}
           </IconButton>
         </DrawerHeader>
+        {/* <p>Admin</p> */}
         <Divider />
         <List>
+       
           {["products", "orders", "users", "create-product"].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
-                <ListItemIcon>
+                {/* <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
+                </ListItemIcon> */}
                 <ListItemText
                   primary={
                     <Link to={`/${text.toLowerCase()}`}>{text}</Link> // Add Link here

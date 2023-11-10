@@ -60,6 +60,7 @@ const ViewUserComponent = () => {
       <center>
       <h2>Users</h2>
       </center>
+      <br />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 400 }} aria-label="customized table">
           <TableHead>
