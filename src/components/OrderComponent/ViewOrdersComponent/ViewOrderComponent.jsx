@@ -21,17 +21,18 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-import "./viewOrder.css"
+import "./viewOrder.css";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: "#1976D2",  // Set the desired background color
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
   },
 }));
+
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
@@ -124,9 +125,10 @@ function ViewOrderComponent() {
 
   return (
     <>
-    <center>
-      <h2>Orders</h2>
+      <center>
+        <h2>Orders</h2>
       </center>
+      <br />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 400 }} aria-label="customized table">
           <TableHead>

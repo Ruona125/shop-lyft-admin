@@ -1,17 +1,23 @@
 .background-paper {
-    background-color: #f7f7f700; /* Background color */
-    padding: 60px; /* Padding to increase thickness */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.425); /* Box shadow for a subtle shadow effect */
-    padding-top: 30px; /* Increase the top padding */
-  padding-right: 30px; /* Increase the right padding */
-  padding-bottom: 30px; /* Increase the bottom padding */
+  background-color: #f7f7f700;
+  /* Background color */
+  padding: 60px;
+  /* Padding to increase thickness */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.425);
+  /* Box shadow for a subtle shadow effect */
+  padding-top: 30px;
+  /* Increase the top padding */
+  padding-right: 30px;
+  /* Increase the right padding */
+  padding-bottom: 30px;
+  /* Increase the bottom padding */
   padding-left: 30px;
   margin: 50px;
-  
-    /* You can adjust the values to achieve the desired thickness and shadow effect */
-  }
+
+  /* You can adjust the values to achieve the desired thickness and shadow effect */
+}
 
 h2 {
   font-family: 'Agbalumo', cursive;
-  color: blue
+  color: #1976D2
 }
