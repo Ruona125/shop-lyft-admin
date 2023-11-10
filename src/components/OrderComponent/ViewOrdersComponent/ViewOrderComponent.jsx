@@ -21,6 +21,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
+import "./viewOrder.css"
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -123,7 +125,7 @@ function ViewOrderComponent() {
   return (
     <>
     <center>
-      <p>Orders</p>
+      <h2>Orders</h2>
       </center>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 400 }} aria-label="customized table">
