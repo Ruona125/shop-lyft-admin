@@ -25,13 +25,17 @@ import "./viewOrder.css";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "#1976D2",  // Set the desired background color
+    backgroundColor: "#1976D2",
     color: theme.palette.common.white,
+    fontFamily: 'Quicksand, sans-serif;'
+
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
+    fontFamily: 'Edu TAS Beginner, cursive',  // Replace semicolon with a comma
   },
 }));
+
 
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -180,6 +184,8 @@ function ViewOrderComponent() {
                       setUpdatedStatus(row.status); // Initialize updatedStatus with the "status" value
                       handleOpen();
                     }}
+                    className="edit-icon"
+                    
                   />
                 </StyledTableCell>
               </StyledTableRow>
