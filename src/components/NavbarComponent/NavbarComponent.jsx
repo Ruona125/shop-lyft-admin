@@ -135,7 +135,7 @@ function NavbarComponent() {
                 </ListItemIcon> */}
                 <ListItemText
                   primary={
-                    <Link to={`/${text.toLowerCase()}`}>{text}</Link> // Add Link here
+                    <Link to={`/${text.toLowerCase()}`} style={{textDecoration:"none", fontFamily: "Quicksand, sans-serif", color:'inherit'}}>{text}</Link> // Add Link here
                   }
                 />
               </ListItemButton>

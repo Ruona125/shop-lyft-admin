@@ -137,7 +137,7 @@ function ViewOrderComponent() {
         <Table sx={{ minWidth: 400 }} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Order ID</StyledTableCell>
+              {/* <StyledTableCell>Order ID</StyledTableCell> */}
               <StyledTableCell>Username</StyledTableCell>
               <StyledTableCell>Email</StyledTableCell>
               <StyledTableCell>Status</StyledTableCell>
@@ -152,9 +152,9 @@ function ViewOrderComponent() {
           <TableBody>
             {rows.map((row, index) => (
               <StyledTableRow key={index}>
-                <StyledTableCell component="th" scope="row">
+                {/* <StyledTableCell component="th" scope="row">
                   {row._id}
-                </StyledTableCell>
+                </StyledTableCell> */}
                 <StyledTableCell>{row.user.username}</StyledTableCell>
                 <StyledTableCell>{row.user.email}</StyledTableCell>
                 <StyledTableCell
