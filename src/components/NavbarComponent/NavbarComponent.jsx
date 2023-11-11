@@ -16,8 +16,9 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import { logoutUser } from "../../Redux/authActions";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -70,6 +71,22 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 function NavbarComponent() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    // Dispatch the logout action
+    dispatch(logoutUser());
+    navigate("/login");
+  };
+
+  const handleNavigation = (route) => {
+    if (route === "logout") {
+      handleLogout();
+    } else {
+      navigate(`/${route}`);
+    }
+  };
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -93,10 +110,10 @@ function NavbarComponent() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" style={{fontFamily: "Quicksand, sans-serif"}}>
+          <Typography variant="h6" noWrap component="div" style={{ fontFamily: "Quicksand, sans-serif" }}>
             Bucollection
           </Typography>
-          <Typography variant="h6" noWrap component="div" style={{fontFamily: "Quicksand, sans-serif", alignContent:"right"}}>
+          <Typography variant="h6" noWrap component="div" style={{ fontFamily: "Quicksand, sans-serif", alignContent: "right" }}>
             Admin
           </Typography>
         </Toolbar>
@@ -123,47 +140,24 @@ function NavbarComponent() {
             )}
           </IconButton>
         </DrawerHeader>
-        {/* <p>Admin</p> */}
-        {/* <Divider /> */}
         <List>
-       
-          {["products", "orders", "users", "create-product", "logout"].map((text, index) => (
+          {["products", "orders", "users", "create-product", "logout"].map((text) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton>
-                {/* <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon> */}
+              <ListItemButton onClick={() => handleNavigation(text)}>
                 <ListItemText
                   primary={
-                    <Link to={`/${text.toLowerCase()}`} style={{textDecoration:"none", fontFamily: "Quicksand, sans-serif", color:'inherit'}}>{text}</Link> // Add Link here
+                    <Link to={`/${text.toLowerCase()}`} style={{ textDecoration: "none", fontFamily: "Quicksand, sans-serif", color: 'inherit' }}>
+                      {text}
+                    </Link>
                   }
                 />
               </ListItemButton>
             </ListItem>
           ))}
         </List>
-    
-        {/* <Divider /> */}
-        {/* <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText
-                  primary={
-                    <Link to={`/${text.toLowerCase()}`}>{text}</Link> // Add Link here
-                  }
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List> */}
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
-        {/* <p>home page</p> */}
       </Main>
     </Box>
   );
