@@ -23,14 +23,16 @@ const ViewProductComponent = () => {
         {products.map((product) => (
           <div key={product._id}>
             <Link to={`/product/${product._id}`} style={{textDecoration:"none"}}>
+              <div className="img-wrapper">
               <img width="200px" src={product.imageLink} alt="hair" />
-              <p style={{fontFamily:'Edu TAS Beginner, cursive'}}>Name: {product.name}</p>
-              <p style={{fontFamily:'Edu TAS Beginner, cursive'}}>${product.price}</p>
-              <p style={{fontFamily:'Edu TAS Beginner, cursive'}}>ratings: {product.ratings}</p>
+              </div>
+              <p style={{fontFamily:'Edu TAS Beginner, cursive', color:"grey"}}>{product.category}</p>
+              <p style={{fontFamily:'Edu TAS Beginner, cursive'}}>{product.name}</p>
+              <p style={{fontFamily:'Edu TAS Beginner, cursive'}}>{product.price}</p>
               {/* <button onClick={() => handleDelete(product._id)}>Delete</button> */}
             </Link>
             <Link to={`/modify-product/${product._id}`} style={{textDecoration:"none", color:"#000"}}>
-              <p>Modify</p>
+              <p className="func-button">Modify</p>
             </Link>
             <br />
           </div>

@@ -5,4 +5,16 @@
 }
 p{
     font-family: 'Agbalumo', cursive;
+    color: #000;
 }
+.func-button {
+    padding: 4px; /* Adjust the padding as needed */
+    width: 150px; /* Set the desired width */
+    color: #fff;
+    background-color: #000;
+    display: inline-block; /* Set display to inline-block */
+    margin: 0 auto; /* Center the button using margin */
+    border-radius: 5%;
+  }
+  
+  
