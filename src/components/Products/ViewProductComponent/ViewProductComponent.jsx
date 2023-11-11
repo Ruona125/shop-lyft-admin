@@ -17,19 +17,20 @@ const ViewProductComponent = () => {
   return (
     <div style={{ textAlign: "center" }}>
       {/* <p>{user.email}</p> */}
-      <h3>Products</h3>
+      <h2>Products</h2>
+      <br />
       <div className="product-container">
         {products.map((product) => (
           <div key={product._id}>
-            <Link to={`/product/${product._id}`}>
+            <Link to={`/product/${product._id}`} style={{textDecoration:"none"}}>
               <img width="200px" src={product.imageLink} alt="hair" />
-              <p>Name: {product.name}</p>
-              <p>${product.price}</p>
-              <p>ratings: {product.ratings}</p>
+              <p style={{fontFamily:'Edu TAS Beginner, cursive'}}>Name: {product.name}</p>
+              <p style={{fontFamily:'Edu TAS Beginner, cursive'}}>${product.price}</p>
+              <p style={{fontFamily:'Edu TAS Beginner, cursive'}}>ratings: {product.ratings}</p>
               {/* <button onClick={() => handleDelete(product._id)}>Delete</button> */}
             </Link>
-            <Link to={`/modify-product/${product._id}`}>
-              <button>Modify</button>
+            <Link to={`/modify-product/${product._id}`} style={{textDecoration:"none", color:"#000"}}>
+              <p>Modify</p>
             </Link>
             <br />
           </div>

@@ -124,10 +124,10 @@ function NavbarComponent() {
           </IconButton>
         </DrawerHeader>
         {/* <p>Admin</p> */}
-        <Divider />
+        {/* <Divider /> */}
         <List>
        
-          {["products", "orders", "users", "create-product"].map((text, index) => (
+          {["products", "orders", "users", "create-product", "logout"].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 {/* <ListItemIcon>
@@ -142,9 +142,9 @@ function NavbarComponent() {
             </ListItem>
           ))}
         </List>
-        s
-        <Divider />
-        <List>
+    
+        {/* <Divider /> */}
+        {/* <List>
           {["All mail", "Trash", "Spam"].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
@@ -159,7 +159,7 @@ function NavbarComponent() {
               </ListItemButton>
             </ListItem>
           ))}
-        </List>
+        </List> */}
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
