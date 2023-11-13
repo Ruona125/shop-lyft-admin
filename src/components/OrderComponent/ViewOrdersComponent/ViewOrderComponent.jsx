@@ -8,7 +8,6 @@ import {
   TableRow,
   TableBody,
 } from "@mui/material";
-import TextField from '@mui/material/TextField';
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
 import EditIcon from "@mui/icons-material/Edit";
@@ -22,7 +21,6 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import CircularProgress from "@mui/material/CircularProgress";
-
 import "./viewOrder.css";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -133,14 +131,12 @@ function ViewOrderComponent() {
         }}
       >
         <CircularProgress />
-        
-        
       </Box>
     );
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div>Error</div>;
   }
 
   return (
