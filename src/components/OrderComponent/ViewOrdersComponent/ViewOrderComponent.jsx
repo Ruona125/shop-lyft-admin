@@ -8,6 +8,7 @@ import {
   TableRow,
   TableBody,
 } from "@mui/material";
+import TextField from '@mui/material/TextField';
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
 import EditIcon from "@mui/icons-material/Edit";
@@ -133,6 +134,7 @@ function ViewOrderComponent() {
         <h2>Orders</h2>
       </center>
       <br />
+      {/* <TextField style={{ marginRight: "0" }} id="outlined-basic" label="Outlined" variant="outlined" /> */}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 400 }} aria-label="customized table">
           <TableHead>

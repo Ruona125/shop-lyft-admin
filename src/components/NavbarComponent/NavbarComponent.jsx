@@ -42,6 +42,19 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   })
 );
 
+const ListItemHoverable = styled(ListItem)(({ theme }) => ({
+  "&:hover": {
+    backgroundColor: theme.palette.primary.main, // or any other color you prefer
+    color:"#fff"
+  },
+}));
+
+const ListItemTextHoverable = styled(ListItemText)(({ theme }) => ({
+  "&:hover": {
+    backgroundColor: "transparent", // Set to transparent to remove default grey shade
+  },
+}));
+
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
@@ -142,17 +155,18 @@ function NavbarComponent() {
         </DrawerHeader>
         <List>
           {["products", "orders", "users", "create-product", "logout"].map((text) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton onClick={() => handleNavigation(text)}>
-                <ListItemText
-                  primary={
-                    <Link to={`/${text.toLowerCase()}`} style={{ textDecoration: "none", fontFamily: "Quicksand, sans-serif", color: 'inherit' }}>
-                      {text}
-                    </Link>
-                  }
-                />
-              </ListItemButton>
-            </ListItem>
+            <ListItemHoverable key={text} disablePadding>
+            <ListItemButton onClick={() => handleNavigation(text)}>
+              {/* Use the custom styled components with hover effect */}
+              <ListItemTextHoverable
+                primary={
+                  <Link to={`/${text.toLowerCase()}`} style={{ textDecoration: "none", fontFamily: "Quicksand, sans-serif", color: 'inherit' }}>
+                    {text}
+                  </Link>
+                }
+              />
+            </ListItemButton>
+          </ListItemHoverable>
           ))}
         </List>
       </Drawer>
