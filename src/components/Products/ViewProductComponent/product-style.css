@@ -1,35 +1,44 @@
-.product-container {
+/* .product-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-  }
-  
-  .product-item {
+} */
+
+.product-item {
     text-align: center;
-  }
-  
-  .image-wrapper {
-    margin-bottom: 10px; /* Add margin to create space between image and details */
-  }
-  
-  .details-wrapper {
+}
+
+.image-wrapper {
+    margin-bottom: 10px;
+}
+
+.details-wrapper {
     border: 1px solid #1976D2;
     width: 200px;
     box-sizing: border-box;
     padding: 8px;
-    margin: -17px auto 0; /* Adjust the negative margin-top as needed */
-  }
-  
-  .func-button {
+    margin: -17px auto 0;
+}
+
+.func-button {
     padding: 4px;
-    /* Adjust the padding as needed */
     width: 150px;
-    /* Set the desired width */
     color: #fff;
     background-color: #1976D2;
     display: inline-block;
-    /* Set display to inline-block */
     margin: 0 auto;
-    /* Center the button using margin */
     border-radius: 5%;
 }
-  
+
+.no-products-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* You can adjust this value to your preference */
+  margin-top: -10em; /* Move this margin to the no-products-message instead of the Box element */
+}
+
+/* Add a new class to apply a different layout for the container when there are products */
+.product-container-with-products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}

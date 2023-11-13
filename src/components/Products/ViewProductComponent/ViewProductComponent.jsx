@@ -51,7 +51,11 @@ const ViewProductComponent = () => {
         <br />
         <div className="product-container">
           {products.length === 0 ? (
-            <p>No products available</p>
+            <div className={products.length === 0 ? "no-products-message" : "product-container-with-products"}>
+              <center>
+                <p>No products available</p>
+              </center>
+            </div>
           ) : (
             products.map((product) => (
               <div key={product._id} className="product-item">
