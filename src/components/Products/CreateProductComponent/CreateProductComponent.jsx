@@ -55,12 +55,12 @@ const CreateProductComponent = () => {
         navigate("/products");
       } else {
         console.log("error sending data");
-        setError("An error occurblue, please try again");
+        setError("An error occur#1976D2, please try again");
       }
     } catch (err) {
       console.log(err);
       setLoading(false);
-      setError("An error occurblue, please try again");
+      setError("An error occur#1976D2, please try again");
     }
   };
 
@@ -70,7 +70,9 @@ const CreateProductComponent = () => {
   };
   return (
     <div>
+      <center>
       <h2>Create Product</h2>
+        <br />
 
       <Box
         sx={{
@@ -80,17 +82,17 @@ const CreateProductComponent = () => {
           },
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
-              borderColor: "blue",
+              borderColor: "#1976D2",
             },
             "&:hover fieldset": {
-              borderColor: "blue",
+              borderColor: "#1976D2",
             },
             "&.Mui-focused fieldset": {
-              borderColor: "blue",
+              borderColor: "#1976D2",
             },
           },
           "& .MuiInputLabel-root": {
-            color: "blue",
+            color: "#1976D2",
           },
         }}
       >
@@ -102,7 +104,7 @@ const CreateProductComponent = () => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            InputLabelProps={{ style: { color: "blue" } }}
+            InputLabelProps={{ style: { color: "#1976D2" } }}
           />
           <br />
           <br />
@@ -114,7 +116,7 @@ const CreateProductComponent = () => {
             type="number"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            InputLabelProps={{ style: { color: "blue" } }}
+            InputLabelProps={{ style: { color: "#1976D2" } }}
           />
           <br />
           <br />
@@ -126,7 +128,7 @@ const CreateProductComponent = () => {
             type="number"
             value={ratings}
             onChange={(e) => setRatings(e.target.value)}
-            InputLabelProps={{ style: { color: "blue" } }}
+            InputLabelProps={{ style: { color: "#1976D2" } }}
           />
           <br />
           <br />
@@ -138,7 +140,7 @@ const CreateProductComponent = () => {
             type="text"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            InputLabelProps={{ style: { color: "blue" } }}
+            InputLabelProps={{ style: { color: "#1976D2" } }}
           /> */}
           <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Category</InputLabel>
@@ -164,7 +166,7 @@ const CreateProductComponent = () => {
             type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            InputLabelProps={{ style: { color: "blue" } }}
+            InputLabelProps={{ style: { color: "#1976D2" } }}
           />
 
           <br />
@@ -177,7 +179,7 @@ const CreateProductComponent = () => {
             type="text"
             value={image}
             onChange={(e) => setImage(e.target.value)}
-            InputLabelProps={{ style: { color: "blue" } }}
+            InputLabelProps={{ style: { color: "#1976D2" } }}
           /> */}
 
           <input
@@ -197,12 +199,12 @@ const CreateProductComponent = () => {
             type="text"
             value={reviews}
             onChange={(e) => setReviews(e.target.value)}
-            InputLabelProps={{ style: { color: "blue" } }}
+            InputLabelProps={{ style: { color: "#1976D2" } }}
           />
 
           <center>
             {loading ? (
-              <CircularProgress style={{ color: "blue" }} />
+              <CircularProgress style={{ color: "#1976D2" }} />
             ) : (
               <Button
                 type="submit"
@@ -210,17 +212,18 @@ const CreateProductComponent = () => {
                 className="login-button"
                 style={{
                   color: "#fff",
-                  backgroundColor: "blue",
+                  backgroundColor: "#1976D2",
                   marginTop: "23px",
                 }}
               >
                 Create Product
               </Button>
             )}
-            {error && <p style={{ color: "blue" }}>{error}</p>}
+            {error && <p style={{ color: "#1976D2" }}>{error}</p>}
           </center>
         </form>
       </Box>
+      </center>
     </div>
   );
 };

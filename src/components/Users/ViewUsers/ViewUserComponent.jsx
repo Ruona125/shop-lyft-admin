@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import {
   Paper,
@@ -10,6 +10,8 @@ import {
 } from "@mui/material";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import { styled } from "@mui/material/styles";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 // Styled components
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -37,6 +39,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 const ViewUserComponent = () => {
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const apiUrl = "http://localhost:8000/users";
@@ -49,11 +52,29 @@ const ViewUserComponent = () => {
       .get(apiUrl, { headers })
       .then((response) => {
         setUsers(response.data);
+        setLoading(false)
       })
       .catch((error) => {
         console.error("Error fetching users: " + error);
+        setLoading(false)
       });
   }, []);
+
+  if (loading) {
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh", // Adjust this value to your preference
+          marginTop: "-10em",
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
     <div>

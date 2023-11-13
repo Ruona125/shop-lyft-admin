@@ -27,16 +27,13 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: "#1976D2",
     color: theme.palette.common.white,
-    fontFamily: 'Quicksand, sans-serif'
-
+    fontFamily: "Quicksand, sans-serif",
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
-    fontFamily: 'Edu TAS Beginner, cursive',  // Replace semicolon with a comma
+    fontFamily: "Edu TAS Beginner, cursive", // Replace semicolon with a comma
   },
 }));
-
-
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
@@ -123,11 +120,11 @@ function ViewOrderComponent() {
     return (
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100vh', // Adjust this value to your preference
-          marginTop: '-10em'
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh", // Adjust this value to your preference
+          marginTop: "-10em",
         }}
       >
         <CircularProgress />
@@ -198,7 +195,6 @@ function ViewOrderComponent() {
                       handleOpen();
                     }}
                     className="edit-icon"
-                    
                   />
                 </StyledTableCell>
               </StyledTableRow>
