@@ -21,6 +21,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import "./viewOrder.css";
 
@@ -121,7 +122,18 @@ function ViewOrderComponent() {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh', // Adjust this value to your preference
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
   }
 
   if (error) {
