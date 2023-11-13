@@ -17,7 +17,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { logoutUser } from "../../Redux/authActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -84,8 +84,9 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 function NavbarComponent() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const navigate = useNavigate();
+  const user = useSelector((state) => state.auth.user)
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     // Dispatch the logout action
@@ -127,7 +128,7 @@ function NavbarComponent() {
             Bucollection
           </Typography>
           <Typography variant="h6" noWrap component="div" style={{ fontFamily: "Quicksand, sans-serif", marginLeft: 'auto' }}>
-            Admin
+            {user.email}
           </Typography>
         </Toolbar>
       </AppBar>
