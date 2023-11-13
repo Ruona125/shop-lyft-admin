@@ -127,9 +127,9 @@ function NavbarComponent() {
           <Typography variant="h6" noWrap component="div" style={{ fontFamily: "Quicksand, sans-serif" }}>
             Bucollection
           </Typography>
-          <Typography variant="h6" noWrap component="div" style={{ fontFamily: "Quicksand, sans-serif", marginLeft: 'auto' }}>
+          {/* <Typography variant="h6" noWrap component="div" style={{ fontFamily: "Quicksand, sans-serif", marginLeft: 'auto' }}>
             {user.email}
-          </Typography>
+          </Typography> */}
         </Toolbar>
       </AppBar>
       <Drawer

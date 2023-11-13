@@ -27,7 +27,9 @@
     display: inline-block;
     margin: 0 auto;
     border-radius: 5%;
+    font-family: Edu TAS Beginner, cursive;
 }
+
 
 .no-products-message {
   display: flex;
@@ -37,8 +39,15 @@
   margin-top: -10em; /* Move this margin to the no-products-message instead of the Box element */
 }
 
+.no-products-message p{
+    font-family: Edu TAS Beginner, cursive;
+}
+.no-prod-message {
+    font-size: 23px;
+}
 /* Add a new class to apply a different layout for the container when there are products */
 .product-container-with-products {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    /* background-color: red; */
 }

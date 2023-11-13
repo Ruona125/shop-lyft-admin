@@ -45,57 +45,47 @@ const ViewProductComponent = () => {
   }
 
   return (
-    <>
-      <div style={{ textAlign: "center" }}>
-        <h2>Products</h2>
-        <br />
-        <div className="product-container">
-          {products.length === 0 ? (
-            <div className={products.length === 0 ? "no-products-message" : "product-container-with-products"}>
-              <center>
-                <p>No products available</p>
-              </center>
-            </div>
-          ) : (
-            products.map((product) => (
-              <div key={product._id} className="product-item">
-                <Link
-                  to={`/product/${product._id}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <div className="image-wrapper">
-                    <img width="200px" src={product.imageLink} alt="hair" />
-                  </div>
-                  <div className="details-wrapper">
-                    <p
-                      style={{
-                        fontFamily: "Edu TAS Beginner, cursive",
-                        color: "grey",
-                      }}
-                    >
-                      {product.category}
-                    </p>
-                    <p style={{ fontFamily: "Edu TAS Beginner, cursive" }}>
-                      {product.name}
-                    </p>
-                    <p style={{ fontFamily: "Edu TAS Beginner, cursive" }}>
-                      ${product.price}
-                    </p>
-                    <Link
-                      to={`/modify-product/${product._id}`}
-                      style={{ textDecoration: "none", color: "#000" }}
-                    >
-                      <p className="func-button">Modify</p>
-                      <br />
-                    </Link>
-                  </div>
-                </Link>
-              </div>
-            ))
-          )}
+    <div style={{ textAlign: "center" }}>
+      <h2>Products</h2>
+      <br />
+      {products.length === 0 ? (
+        <div className="no-products-message">
+          <center>
+            <Link to={`/create-product`} style={{ textDecoration: "none", color: "#000" }}>
+              <p className="no-prod-message">No products available</p>
+              <br />
+              <p className="func-button">Create Product</p>
+            </Link>
+          </center>
         </div>
-      </div>
-    </>
+      ) : (
+        <div className="product-container-with-products">
+          {products.map((product) => (
+            <div key={product._id} className="product-item">
+              <Link to={`/product/${product._id}`} style={{ textDecoration: "none" }}>
+                <div className="image-wrapper">
+                  <img width="200px" src={product.imageLink} alt="hair" />
+                </div>
+                <div className="details-wrapper">
+                  <p style={{ fontFamily: "Edu TAS Beginner, cursive", color: "grey" }}>
+                    {product.category}
+                  </p>
+                  <p style={{ fontFamily: "Edu TAS Beginner, cursive" }}>{product.name}</p>
+                  <p style={{ fontFamily: "Edu TAS Beginner, cursive" }}>${product.price}</p>
+                  <Link
+                    to={`/modify-product/${product._id}`}
+                    style={{ textDecoration: "none", color: "#000" }}
+                  >
+                    <p className="func-button">Modify</p>
+                    <br />
+                  </Link>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 
