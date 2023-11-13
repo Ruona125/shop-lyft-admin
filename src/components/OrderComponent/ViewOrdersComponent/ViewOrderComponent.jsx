@@ -129,9 +129,12 @@ function ViewOrderComponent() {
           justifyContent: 'center',
           alignItems: 'center',
           height: '100vh', // Adjust this value to your preference
+          marginTop: '-10em'
         }}
       >
         <CircularProgress />
+        
+        
       </Box>
     );
   }
