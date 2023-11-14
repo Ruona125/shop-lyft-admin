@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
-import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import "./product-style.css";
 import Box from "@mui/material/Box";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "react-responsive-carousel/lib/styles/carousel.css"; // Add this line as well
 
 const ViewProductComponent = () => {
   const [products, setProducts] = useState([]);
@@ -45,16 +47,6 @@ const ViewProductComponent = () => {
     return <div>Error</div>;
   }
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 2000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-  };
-
   return (
     <div style={{ textAlign: "center" }}>
       <h2>Products</h2>
@@ -62,7 +54,10 @@ const ViewProductComponent = () => {
       {products.length === 0 ? (
         <div className="no-products-message">
           <center>
-            <Link to={`/create-product`} style={{ textDecoration: "none", color: "#000" }}>
+            <Link
+              to={`/create-product`}
+              style={{ textDecoration: "none", color: "#000" }}
+            >
               <p className="no-prod-message">No products available</p>
               <br />
               <p className="func-button">Create Product</p>
@@ -70,35 +65,58 @@ const ViewProductComponent = () => {
           </center>
         </div>
       ) : (
-        <Slider {...settings}>
+        <div>
           {products.map((product) => (
             <div key={product._id} className="product-item">
-              <Link to={`/product/${product._id}`} style={{ textDecoration: "none" }}>
-                <div className="image-wrapper">
-                  <img width="200px" src={product.imageLinks[0]} alt="hair" />
-                </div>
-                <div className="details-wrapper">
-                  <p style={{ fontFamily: "Edu TAS Beginner, cursive", color: "grey" }}>
-                    {product.category}
-                  </p>
-                  <p style={{ fontFamily: "Edu TAS Beginner, cursive" }}>{product.name}</p>
-                  <p style={{ fontFamily: "Edu TAS Beginner, cursive" }}>${product.price}</p>
-                  <Link
-                    to={`/modify-product/${product._id}`}
-                    style={{ textDecoration: "none", color: "#000" }}
-                  >
-                    <p className="func-button">Modify</p>
-                    <br />
-                  </Link>
-                </div>
-              </Link>
+              <div className="details-wrapper">
+                <Carousel
+                  showArrows={true}
+                  showStatus={false}
+                  showThumbs={false}
+                  dynamicHeight={false}
+                  emulateTouch={true}
+                  infiniteLoop={true}
+                  autoPlay={true} // Set autoPlay to true
+                  interval={2000} // Set the interval to 2 seconds
+                >
+                  {product.imageLinks.map((link, index) => (
+                    <div key={index}>
+                      <img
+                        width="200px"
+                        src={link}
+                        alt={`Product ${index + 1}`}
+                      />
+                    </div>
+                  ))}
+                </Carousel>
+                <p
+                  style={{
+                    fontFamily: "Edu TAS Beginner, cursive",
+                    color: "grey",
+                  }}
+                >
+                  {product.category}
+                </p>
+                <p style={{ fontFamily: "Edu TAS Beginner, cursive" }}>
+                  {product.name}
+                </p>
+                <p style={{ fontFamily: "Edu TAS Beginner, cursive" }}>
+                  ${product.price}
+                </p>
+                <Link
+                  to={`/modify-product/${product._id}`}
+                  style={{ textDecoration: "none", color: "#000" }}
+                >
+                  <p className="func-button">Modify</p>
+                  <br />
+                </Link>
+              </div>
             </div>
           ))}
-        </Slider>
+        </div>
       )}
     </div>
   );
 };
 
 export default ViewProductComponent;
- 
