@@ -90,6 +90,7 @@ const ViewUserComponent = () => {
               <StyledTableCell>Email</StyledTableCell>
               {/* <StyledTableCell>isAdmin</StyledTableCell> */}
               <StyledTableCell>Creation Date</StyledTableCell>
+              <StyledTableCell>Phone Number</StyledTableCell>
             </TableRow>
           </TableHead>
 
@@ -100,6 +101,7 @@ const ViewUserComponent = () => {
                 <StyledTableCell>{user.email}</StyledTableCell>
                 {/* <StyledTableCell>{user.isAdmin ? "Yes" : "No"}</StyledTableCell> */}
                 <StyledTableCell>{user.createdAt}</StyledTableCell>
+                <StyledTableCell>{user.phoneNumber}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

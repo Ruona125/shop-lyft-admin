@@ -1,13 +1,14 @@
-// Login.js
-
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, Link } from "react-router-dom";
-import { loginUser } from '../../Redux/authActions';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../Redux/authActions";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import "./login.css"; // Import a custom CSS file for styling
 
 function LoginComponent() {
   const dispatch = useDispatch();
-  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const navigate = useNavigate();
 
@@ -24,28 +25,41 @@ function LoginComponent() {
   };
 
   useEffect(() => {
-    if (isAuthenticated){
-      navigate("/home")
+    if (isAuthenticated) {
+      navigate("/products");
     }
-  }, [isAuthenticated, navigate])
+  }, [isAuthenticated, navigate]);
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
+    <div className="center-container">
+      <h2 className="login-header">Login</h2>
+      <form onSubmit={handleSubmit} className="login-form">
+        <TextField
+          label="Email"
           type="email"
+          variant="outlined"
+          margin="normal"
+          onChange={handleInputChange}
           name="email"
-          placeholder="email"
-          onChange={handleInputChange}
         />
-        <input
+        <br />
+        <TextField
+          label="Password"
           type="password"
-          name="password"
-          placeholder="Password"
+          variant="outlined"
+          margin="normal"
           onChange={handleInputChange}
+          name="password"
         />
-        <button type="submit">Submit</button>
+        <br />
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          style={{ marginTop: "23px", fontFamily: "Edu TAS Beginner, cursive" }}
+        >
+          Login
+        </Button>
       </form>
     </div>
   );
