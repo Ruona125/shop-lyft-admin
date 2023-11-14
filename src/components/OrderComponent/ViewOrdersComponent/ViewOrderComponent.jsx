@@ -139,7 +139,7 @@ function ViewOrderComponent() {
   return (
     <>
       <center>
-        <h2>Orders</h2>
+        <h2 className="order">Orders</h2>
       </center>
       <br />
       {/* <TextField style={{ marginRight: "0" }} id="outlined-basic" label="Outlined" variant="outlined" /> */}
