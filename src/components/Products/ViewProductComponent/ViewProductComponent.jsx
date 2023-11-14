@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
+import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import "./product-style.css";
 import Box from "@mui/material/Box";
@@ -31,7 +32,7 @@ const ViewProductComponent = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "100vh", // Adjust this value to your preference
+          height: "100vh",
           marginTop: "-10em",
         }}
       >
@@ -43,6 +44,16 @@ const ViewProductComponent = () => {
   if (error) {
     return <div>Error</div>;
   }
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 2000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
 
   return (
     <div style={{ textAlign: "center" }}>
@@ -59,12 +70,12 @@ const ViewProductComponent = () => {
           </center>
         </div>
       ) : (
-        <div className="product-container-with-products">
+        <Slider {...settings}>
           {products.map((product) => (
             <div key={product._id} className="product-item">
               <Link to={`/product/${product._id}`} style={{ textDecoration: "none" }}>
                 <div className="image-wrapper">
-                  <img width="200px" src={product.imageLink} alt="hair" />
+                  <img width="200px" src={product.imageLinks[0]} alt="hair" />
                 </div>
                 <div className="details-wrapper">
                   <p style={{ fontFamily: "Edu TAS Beginner, cursive", color: "grey" }}>
@@ -83,10 +94,11 @@ const ViewProductComponent = () => {
               </Link>
             </div>
           ))}
-        </div>
+        </Slider>
       )}
     </div>
   );
 };
 
 export default ViewProductComponent;
+ 

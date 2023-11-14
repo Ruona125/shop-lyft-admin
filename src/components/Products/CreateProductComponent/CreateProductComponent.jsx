@@ -15,27 +15,29 @@ const CreateProductComponent = () => {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState("");
+  const [images, setImages] = useState([]);
   const [reviews, setReviews] = useState("");
   const [ratings, setRatings] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
-  //   const token = useSelector((state) => state.auth.token)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = "http://localhost:8000/product";
-    const data = {
-      name: name,
-      category: category,
-      price: price,
-      description: description,
-      image: image,
-      reviews: reviews,
-      ratings: ratings,
-    };
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("category", category);
+    formData.append("price", price);
+    formData.append("description", description);
+    formData.append("reviews", reviews);
+    formData.append("ratings", ratings);
+  
+    images.forEach((image, index) => {
+      formData.append("images", image);  // Use the same key for each file
+    });
+
     const headers = {
       "Content-Type": "multipart/form-data",
       Authorization: localStorage.getItem("token"),
@@ -43,30 +45,30 @@ const CreateProductComponent = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post(url, data, { headers });
+      const res = await axios.post(url, formData, { headers });
       if (res.status === 200) {
         setName("");
         setCategory("");
         setPrice("");
         setDescription("");
-        setImage("");
+        setImages([]);
         setReviews("");
         setLoading(false);
         navigate("/products");
       } else {
         console.log("error sending data");
-        setError("An error occur#1976D2, please try again");
+        setError("An error occurred, please try again");
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
       setLoading(false);
-      setError("An error occur#1976D2, please try again");
+      setError("An error occurred, please try again");
     }
   };
 
   const fileSelected = (event) => {
-    const file = event.target.files[0];
-    setImage(file);
+    const selectedFiles = event.target.files;
+    setImages([...selectedFiles]);
   };
   return (
     <div>
@@ -163,8 +165,18 @@ const CreateProductComponent = () => {
                 onChange={(e) => setCategory(e.target.value)}
                 style={{ fontFamily: "YourFontFamily, sans-serif" }}
               >
-                <MenuItem value="Hair" style={{fontFamily: "Edu TAS Beginner, cursive",}}>Hair</MenuItem>
-                <MenuItem value="Gift Boxes" style={{fontFamily: "Edu TAS Beginner, cursive",}}>Gift Boxes</MenuItem>
+                <MenuItem
+                  value="Hair"
+                  style={{ fontFamily: "Edu TAS Beginner, cursive" }}
+                >
+                  Hair
+                </MenuItem>
+                <MenuItem
+                  value="Gift Boxes"
+                  style={{ fontFamily: "Edu TAS Beginner, cursive" }}
+                >
+                  Gift Boxes
+                </MenuItem>
                 {/* <MenuItem value={30}>Thirty</MenuItem> */}
               </Select>
             </FormControl>
@@ -193,11 +205,11 @@ const CreateProductComponent = () => {
             <input
               onChange={fileSelected}
               type="file"
-              name="image"
+              name="images"
               accept="image/*"
+              multiple
               style={{ paddingBottom: "23px" }}
             />
-           
 
             <TextField
               id="outlined-basic"
