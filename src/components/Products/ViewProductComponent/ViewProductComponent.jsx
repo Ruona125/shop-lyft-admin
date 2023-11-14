@@ -65,7 +65,7 @@ const ViewProductComponent = () => {
           </center>
         </div>
       ) : (
-        <div>
+        <div className="product-container-with-products">
           {products.map((product) => (
             <div key={product._id} className="product-item">
               <div className="details-wrapper">
@@ -83,6 +83,7 @@ const ViewProductComponent = () => {
                     <div key={index}>
                       <img
                         width="200px"
+                        height="200px"
                         src={link}
                         alt={`Product ${index + 1}`}
                       />
