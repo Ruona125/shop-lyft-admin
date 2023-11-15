@@ -155,7 +155,6 @@ const CreateProductComponent = () => {
                 >
                   Gift Boxes
                 </MenuItem>
-                {/* <MenuItem value={30}>Thirty</MenuItem> */}
               </Select>
             </FormControl>
 
