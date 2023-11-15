@@ -11,6 +11,10 @@
   .login-header {
     align-self: center;
     margin-bottom: 20px;
+    color: #fff;
+    padding: 3px 20px;
+    border-radius: 25%;
+    background-color: #1976D2;
   }
   
   .login-form {

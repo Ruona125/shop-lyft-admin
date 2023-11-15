@@ -16,8 +16,6 @@ const CreateProductComponent = () => {
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [images, setImages] = useState([]);
-  const [reviews, setReviews] = useState("");
-  const [ratings, setRatings] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -31,11 +29,9 @@ const CreateProductComponent = () => {
     formData.append("category", category);
     formData.append("price", price);
     formData.append("description", description);
-    formData.append("reviews", reviews);
-    formData.append("ratings", ratings);
-  
+
     images.forEach((image, index) => {
-      formData.append("images", image);  // Use the same key for each file
+      formData.append("images", image); // Use the same key for each file
     });
 
     const headers = {
@@ -52,7 +48,6 @@ const CreateProductComponent = () => {
         setPrice("");
         setDescription("");
         setImages([]);
-        setReviews("");
         setLoading(false);
         navigate("/products");
       } else {
@@ -133,23 +128,6 @@ const CreateProductComponent = () => {
             <br />
             <br />
 
-            <TextField
-              id="outlined-basic"
-              label="ratings"
-              variant="outlined"
-              type="number"
-              value={ratings}
-              onChange={(e) => setRatings(e.target.value)}
-              InputLabelProps={{
-                style: {
-                  color: "#1976D2",
-                  fontFamily: "Edu TAS Beginner, cursive",
-                },
-              }}
-            />
-            <br />
-            <br />
-
             <FormControl fullWidth>
               <InputLabel
                 id="demo-simple-select-label"
@@ -209,21 +187,6 @@ const CreateProductComponent = () => {
               accept="image/*"
               multiple
               style={{ paddingBottom: "23px" }}
-            />
-
-            <TextField
-              id="outlined-basic"
-              label="reviews"
-              variant="outlined"
-              type="text"
-              value={reviews}
-              onChange={(e) => setReviews(e.target.value)}
-              InputLabelProps={{
-                style: {
-                  color: "#1976D2",
-                  fontFamily: "Edu TAS Beginner, cursive",
-                },
-              }}
             />
 
             <center>
