@@ -7,7 +7,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 const ViewCertainProductComponent = () => {
   const { id } = useParams();
   const [certainProducts, setCertainProduct] = useState({ imageLinks: [] });
-  const [ratings, setRatings] = useState("")
+  const [ratings, setRatings] = useState("");
+  const [reviews, setReviews] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,21 +23,37 @@ const ViewCertainProductComponent = () => {
 
     const fetchRating = async () => {
       try {
-        const apiUrl = `http://localhost:8000/rating/${id}`
+        const apiUrl = `http://localhost:8000/rating/${id}`;
         const headers = {
           "Content-Type": "application/json",
           Authorization: localStorage.getItem("token"),
         };
-        const response = await axios.get(apiUrl, {headers});
+        const response = await axios.get(apiUrl, { headers });
         setRatings(response.data);
         // console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
+    };
+
+    const fetchReviews = async () => {
+      try{
+        const apiUrl = `http://localhost:8000/review/${id}`;
+        const headers = {
+          "Content-Type": "application/json",
+          Authorization: localStorage.getItem("token"),
+        };
+        const response = await axios.get(apiUrl, { headers });
+        setReviews(response.data);
+        console.log(response.data)
+      }catch(error){
+        console.log("error fetching data", error)
+      }
     }
 
     fetchData(); // Call the async function inside useEffect
     fetchRating();
+    fetchReviews();
   }, [id]); // Include 'id' in the dependency array
 
   return (
@@ -70,6 +87,9 @@ const ViewCertainProductComponent = () => {
       <p>Name: {certainProducts.name}</p>
       <p>$ {certainProducts.price}</p>
       <p>Ratings: {ratings.averageRating}</p>
+      {reviews.map((review) => (
+        <p key={review._id}>{review.reviews}</p>
+      ))}
     </div>
   );
 };
