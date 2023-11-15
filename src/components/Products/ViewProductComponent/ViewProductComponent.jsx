@@ -105,6 +105,14 @@ const ViewProductComponent = () => {
                   ${product.price}
                 </p>
                 <Link
+                  to={`/product/${product._id}`}
+                  style={{ textDecoration: "none", color: "#000" }}
+                >
+                  <p className="func-button">View Product</p>
+                  <br />
+                </Link>
+                <br />
+                <Link
                   to={`/modify-product/${product._id}`}
                   style={{ textDecoration: "none", color: "#000" }}
                 >
