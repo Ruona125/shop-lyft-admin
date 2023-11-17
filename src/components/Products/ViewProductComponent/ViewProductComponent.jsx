@@ -14,9 +14,13 @@ const ViewProductComponent = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const url = "http://localhost:8000/product";
+    const url = "http://localhost:8000/admin/product";
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: localStorage.getItem("token")
+    }
     axios
-      .get(url)
+      .get(url, {headers})
       .then((response) => {
         setProducts(response.data);
         setLoading(false);

@@ -131,7 +131,7 @@ const ModifyProductComponent = () => {
             <br />
             <br />
 
-            <TextField
+            {/* <TextField
               id="outlined-basic"
               label="ratings"
               variant="outlined"
@@ -146,7 +146,7 @@ const ModifyProductComponent = () => {
               }}
             />
             <br />
-            <br />
+            <br /> */}
 
             <FormControl fullWidth>
               <InputLabel
