@@ -175,7 +175,12 @@ const ModifyProductComponent = () => {
                 >
                   Gift Boxes
                 </MenuItem>
-                {/* <MenuItem value={30}>Thirty</MenuItem> */}
+                <MenuItem
+                  value="Hair Accessories"
+                  style={{ fontFamily: "Edu TAS Beginner, cursive" }}
+                >
+                  Hair Accessories
+                </MenuItem>
               </Select>
             </FormControl>
             <br />
