@@ -1,33 +1,40 @@
 .details-wrapper-product {
-    /* border: 1px solid #1976D2; */
-    /* width: 200px; */
-    /* box-sizing: border-box; */
-    padding: 8px;
-    /* margin: -17px auto 0; */
-    width: 650px
+  /* border: 1px solid #1976D2; */
+  /* width: 200px; */
+  /* box-sizing: border-box; */
+  padding: 8px;
+  /* margin: -17px auto 0; */
+  width: 650px
 }
 
 .prod-det {
-    font-family: Edu TAS Beginner, cursive;
+  font-family: Edu TAS Beginner, cursive;
+}
 
+.reviews {
+  padding: 5px;
+}
+
+.review-header {
+  font-family: Edu TAS Beginner, cursive;
 }
 
 .main-prod-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    padding: 4rem;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem;
+}
 
-  .certain-img-style {
-    height: 490px;
-    width: 100%; /* Make sure the image takes the full width of its container */
-  }
+.certain-img-style {
+  height: 490px;
+  width: 100%;
+  /* Make sure the image takes the full width of its container */
+}
 
-  .prod-details {
-    /* Add any existing styling you have for this element */
-    margin-left: -77px; /* Adjust the value as needed */
-  }
-  
+.prod-details {
+  /* Add any existing styling you have for this element */
+  /* margin-left: -77px;  */
+}

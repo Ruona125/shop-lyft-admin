@@ -3,12 +3,60 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { styled } from "@mui/material/styles";
+import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
+import MuiAccordion from "@mui/material/Accordion";
+import MuiAccordionSummary from "@mui/material/AccordionSummary";
+import MuiAccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
 import "./certain-product-syles.css";
+
+const Accordion = styled((props) => (
+  <MuiAccordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  "&:not(:last-child)": {
+    borderBottom: 0,
+  },
+  "&:before": {
+    display: "none",
+  },
+}));
+
+const AccordionSummary = styled((props) => (
+  <MuiAccordionSummary
+    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
+    {...props}
+  />
+))(({ theme }) => ({
+  backgroundColor:
+    theme.palette.mode === "dark"
+      ? "rgba(255, 255, 255, .05)"
+      : "rgba(0, 0, 0, .03)",
+  flexDirection: "row-reverse",
+  "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
+    transform: "rotate(90deg)",
+  },
+  "& .MuiAccordionSummary-content": {
+    marginLeft: theme.spacing(1),
+  },
+}));
+
+const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+  padding: theme.spacing(2),
+  borderTop: "1px solid rgba(0, 0, 0, .125)",
+}));
+
 const ViewCertainProductComponent = () => {
   const { id } = useParams();
   const [certainProducts, setCertainProduct] = useState({ imageLinks: [] });
   const [ratings, setRatings] = useState("");
   const [reviews, setReviews] = useState([]);
+  const [expanded, setExpanded] = React.useState("panel1");
+
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,7 +106,6 @@ const ViewCertainProductComponent = () => {
 
   return (
     <div>
-      
       {/* <h3>Certain Product</h3> */}
 
       <div className="main-prod-wrapper">
@@ -90,11 +137,33 @@ const ViewCertainProductComponent = () => {
           <p className="prod-det">$ {certainProducts.price}</p>
           <p className="prod-det">Ratings: {ratings.averageRating}</p>
           <p className="prod-det">Description: {certainProducts.description}</p>
-          <h3>Reviews:</h3>
+          {/* <h3>Reviews:</h3> */}
           {reviews.map((review) => (
-            <p key={review._id} className="prod-det">
-              {review.reviews}
-            </p>
+            // <p key={review._id} className="prod-det">
+            //   {review.reviews}
+            // </p>
+            <div key={review._id}>
+              <Accordion
+                expanded={expanded === "panel1"}
+                onChange={handleChange("panel1")}
+              >
+                <AccordionSummary
+                  aria-controls="panel1d-content"
+                  id="panel1d-header"
+                >
+                  <h3 className="review-header">Reviews</h3>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <p className="prod-det reviews">
+                  <ol>
+                    <li>
+                    {review.reviews}
+                  </li>
+                  </ol>
+                  </p>
+                </AccordionDetails>
+              </Accordion>
+            </div>
           ))}
         </div>
       </div>
