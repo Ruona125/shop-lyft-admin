@@ -155,6 +155,12 @@ const CreateProductComponent = () => {
                 >
                   Gift Boxes
                 </MenuItem>
+                <MenuItem
+                  value="Hair Accessories"
+                  style={{ fontFamily: "Edu TAS Beginner, cursive" }}
+                >
+                  Hair Accessories
+                </MenuItem>
               </Select>
             </FormControl>
 
