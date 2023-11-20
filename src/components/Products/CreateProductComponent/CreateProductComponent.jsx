@@ -168,11 +168,13 @@ const CreateProductComponent = () => {
             <br />
 
             <TextField
-              id="outlined-basic"
+               id="outlined-multiline-static"
               label="description"
               variant="outlined"
               type="text"
+              multiline
               value={description}
+              rows={4}
               onChange={(e) => setDescription(e.target.value)}
               InputLabelProps={{
                 style: {
