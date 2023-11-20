@@ -136,7 +136,7 @@ const ViewProductComponent = () => {
         </div>
       )}
       {visibleProducts < products.length && (
-        <p onClick={loadMore} style={{ cursor: "pointer", color: "blue" }}>
+        <p onClick={loadMore} className="view-more">
           View More
         </p>
       )}

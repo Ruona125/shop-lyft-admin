@@ -53,3 +53,15 @@
     grid-gap: -110em;
     /* background-color: red; */
 }
+
+.view-more {
+    cursor: pointer;
+    padding: 4px;
+    width: 150px;
+    color: #fff;
+    background-color: #1976D2;
+    display: inline-block;
+    margin: 0 auto;
+    border-radius: 5%;
+    font-family: Edu TAS Beginner, cursive;
+}
