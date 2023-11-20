@@ -107,7 +107,7 @@ const ViewCertainProductComponent = () => {
   return (
     <div>
       {/* <h3>Certain Product</h3> */}
-
+<h3>Product</h3>
       <div className="main-prod-wrapper">
         <div className="details-wrapper-product">
           <Carousel
@@ -155,11 +155,9 @@ const ViewCertainProductComponent = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                   <p className="prod-det reviews">
-                  <ol>
-                    <li>
-                    {review.reviews}
-                  </li>
-                  </ol>
+                    <ol>
+                      <li>{review.reviews}</li>
+                    </ol>
                   </p>
                 </AccordionDetails>
               </Accordion>
