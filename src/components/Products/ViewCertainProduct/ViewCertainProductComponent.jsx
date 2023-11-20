@@ -107,7 +107,9 @@ const ViewCertainProductComponent = () => {
   return (
     <div>
       {/* <h3>Certain Product</h3> */}
-<h3>Product</h3>
+      <center>
+        <h2>Product</h2>
+      </center>
       <div className="main-prod-wrapper">
         <div className="details-wrapper-product">
           <Carousel
@@ -134,7 +136,7 @@ const ViewCertainProductComponent = () => {
 
         <div className="prod-details">
           <p className="prod-det">Name: {certainProducts.name}</p>
-          <p className="prod-det">$ {certainProducts.price}</p>
+          <p className="prod-det">${certainProducts.price}</p>
           <p className="prod-det">Ratings: {ratings.averageRating}</p>
           <p className="prod-det">Description: {certainProducts.description}</p>
           {/* <h3>Reviews:</h3> */}

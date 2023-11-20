@@ -55,6 +55,7 @@ const ViewProductComponent = () => {
     <div style={{ textAlign: "center" }}>
       <h2>Products</h2>
       <br />
+      <br />
       {products.length === 0 ? (
         <div className="no-products-message">
           <center>

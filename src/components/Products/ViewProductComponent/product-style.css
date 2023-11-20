@@ -5,6 +5,7 @@
 
 .product-item {
     text-align: center;
+    padding-bottom: 50px
 }
 
 .image-wrapper {
@@ -48,7 +49,7 @@
 /* Add a new class to apply a different layout for the container when there are products */
 .product-container-with-products {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: -110em;
     /* background-color: red; */
 }
