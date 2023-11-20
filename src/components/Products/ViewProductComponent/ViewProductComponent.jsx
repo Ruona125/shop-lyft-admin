@@ -2,25 +2,26 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Link } from "react-router-dom";
-import "./product-style.css";
 import Box from "@mui/material/Box";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "react-responsive-carousel/lib/styles/carousel.css"; // Add this line as well
+import "react-responsive-carousel/lib/styles/carousel.css";
+import "./product-style.css"
 
 const ViewProductComponent = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [visibleProducts, setVisibleProducts] = useState(8); // Number of products to display initially
 
   useEffect(() => {
     const url = "http://localhost:8000/admin/product";
     const headers = {
       "Content-Type": "application/json",
-      Authorization: localStorage.getItem("token")
-    }
+      Authorization: localStorage.getItem("token"),
+    };
     axios
-      .get(url, {headers})
+      .get(url, { headers })
       .then((response) => {
         setProducts(response.data);
         setLoading(false);
@@ -30,6 +31,11 @@ const ViewProductComponent = () => {
         setLoading(false);
       });
   }, []);
+
+  const loadMore = () => {
+    // Increase the number of visible products by 8
+    setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 8);
+  };
 
   if (loading) {
     return (
@@ -71,7 +77,7 @@ const ViewProductComponent = () => {
         </div>
       ) : (
         <div className="product-container-with-products">
-          {products.map((product) => (
+          {products.slice(0, visibleProducts).map((product) => (
             <div key={product._id} className="product-item">
               <div className="details-wrapper">
                 <Carousel
@@ -81,8 +87,8 @@ const ViewProductComponent = () => {
                   dynamicHeight={false}
                   emulateTouch={true}
                   infiniteLoop={true}
-                  autoPlay={true} // Set autoPlay to true
-                  interval={2000} // Set the interval to 2 seconds
+                  autoPlay={true}
+                  interval={2000}
                 >
                   {product.imageLinks.map((link, index) => (
                     <div key={index}>
@@ -128,6 +134,11 @@ const ViewProductComponent = () => {
             </div>
           ))}
         </div>
+      )}
+      {visibleProducts < products.length && (
+        <p onClick={loadMore} style={{ cursor: "pointer", color: "blue" }}>
+          View More
+        </p>
       )}
     </div>
   );
