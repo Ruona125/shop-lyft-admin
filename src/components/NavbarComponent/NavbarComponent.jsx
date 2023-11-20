@@ -84,14 +84,14 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 function NavbarComponent() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const user = useSelector((state) => state.auth.user)
+  // const user = useSelector((state) => state.auth.user)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogout = () => {
     // Dispatch the logout action
     dispatch(logoutUser());
-    navigate("/login");
+    navigate("/");
   };
 
   const handleNavigation = (route) => {
