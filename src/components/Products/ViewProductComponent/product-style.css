@@ -65,3 +65,9 @@
     border-radius: 5%;
     font-family: Edu TAS Beginner, cursive;
 }
+
+@media screen and (max-width: 933px) {
+    .product-container-with-products {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
