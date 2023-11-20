@@ -71,3 +71,22 @@
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
+
+@media screen and (max-width: 705px) {
+    .product-container-with-products {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: -75em;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    .product-container-with-products {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .product-container-with-products {
+        grid-template-columns: 1fr;
+    }
+}
