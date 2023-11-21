@@ -9,9 +9,11 @@ import ModifyProduct from "./pages/ModifyProduct/ModifyProduct";
 import ViewCertainProduct from "./pages/ViewCertainProdcut/ViewCertainProduct";
 import CreateProductComponent from "./components/Products/CreateProductComponent/CreateProductComponent";
 import ViewUser from "./pages/ViewUser/ViewUser";
+import AuthHandlerComponent from "./components/AuthHandlerComponent/AuthHandlerComponent";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  AuthHandlerComponent();
   return (
     <>
       <div>
