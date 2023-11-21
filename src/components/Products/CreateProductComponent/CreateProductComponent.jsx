@@ -23,7 +23,7 @@ const CreateProductComponent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = "http://localhost:8000/product";
+    const url = "https://api.bucollections.com/product";
     const formData = new FormData();
     formData.append("name", name);
     formData.append("category", category);
