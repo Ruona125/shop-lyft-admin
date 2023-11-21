@@ -7,6 +7,8 @@ import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import "./login.css"; // Import a custom CSS file for styling
 
+// ... (other imports)
+
 function LoginComponent() {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -15,9 +17,14 @@ function LoginComponent() {
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    // If the input is for the email field, convert it to lowercase
+    const lowercasedValue = name === 'email' ? value.toLowerCase() : value;
+
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: lowercasedValue,
     });
   };
 
@@ -72,3 +79,4 @@ function LoginComponent() {
 }
 
 export default LoginComponent;
+
