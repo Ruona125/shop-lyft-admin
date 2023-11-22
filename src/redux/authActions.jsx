@@ -5,12 +5,10 @@ export const loginUser = (userData) => async (dispatch) => {
 
   try {
     // Make an API request to the login endpoint
-<<<<<<< HEAD
+
     // https://api.bucollections.com/
     const response = await fetch('https://api.bucollections.com/login', {
-=======
-    const response = await fetch('https://api.bucollections.com/login', {
->>>>>>> f8993fcea858e9c75aea3e40f1c8bb302d5ad547
+
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
