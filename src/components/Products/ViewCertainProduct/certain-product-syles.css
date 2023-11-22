@@ -1,22 +1,23 @@
 .details-wrapper-product {
-  /* border: 1px solid #1976D2; */
-  /* width: 200px; */
-  /* box-sizing: border-box; */
   padding: 8px;
-  /* margin: -17px auto 0; */
-  width: 650px
+  width: 650px;
 }
 
 .prod-det {
   font-family: Edu TAS Beginner, cursive;
 }
 
-.reviews {
-  padding: 5px;
-}
-
 .review-header {
   font-family: Edu TAS Beginner, cursive;
+}
+
+.certain-img-style {
+  height: 490px;
+  width: 100%;
+}
+
+.prod-details {
+  padding: 0 20px; /* Add padding to the prod-details for better spacing */
 }
 
 .main-prod-wrapper {
@@ -26,16 +27,61 @@
   align-items: center;
   gap: -17em;
   padding: 4rem;
-  
 }
 
-.certain-img-style {
-  height: 490px;
-  width: 100%;
-  /* Make sure the image takes the full width of its container */
+@media screen and (max-width: 1134px) {
+  .details-wrapper-product {
+    width: 80%;
+  }
+
+  .certain-img-style {
+    height: 400px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .main-prod-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
-.prod-details {
-  /* Add any existing styling you have for this element */
-  /* margin-left: -77px;  */
+@media screen and (max-width: 937px) {
+  .details-wrapper-product {
+    width: 100%;
+  }
+
+  .certain-img-style {
+    height: 400px;
+    width: 60%;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 893px) {
+  .details-wrapper-product {
+    width: 100%;
+  }
+
+  .certain-img-style {
+    height: 400px;
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-prod-wrapper {
+    grid-template-columns: 1fr; /* Change to a single column for smaller screens */
+    gap: 1rem;
+  }
+
+  .details-wrapper-product {
+    width: 100%;
+  }
+
+  .certain-img-style {
+    height: auto; /* Allow the height to adjust based on the image content */
+    width: 100%;
+  }
 }
