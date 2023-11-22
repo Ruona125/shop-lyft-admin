@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   // server: {
   //   proxy: {
-  //     '/api':'https://api.bucollections.com'
+  //     '/api':'https://api.bucollections.com/'
   //   }
   // }
 })
