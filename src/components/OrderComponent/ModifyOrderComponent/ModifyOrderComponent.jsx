@@ -12,7 +12,7 @@ const ModifyOrderComponent = () => {
 
   useEffect(() => {
     // https://api.bucollections.com/
-    const url = `https://api.bucollections.com/order/${id}`;
+    const url = `http://localhost:8000/order/${id}`;
     const headers = {
       "Content-Type": "application/json",
       Authorization: localStorage.getItem("token")

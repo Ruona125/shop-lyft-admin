@@ -5,22 +5,21 @@ import { loginUser } from "../../Redux/authActions";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
-import "./login.css"; // Import a custom CSS file for styling
-
-// ... (other imports)
+import "./login.css"; 
 
 function LoginComponent() {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const isLoading = useSelector((state) => state.auth.isLoading);
+  const error = useSelector((state) => state.auth.error);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
     // If the input is for the email field, convert it to lowercase
-    const lowercasedValue = name === 'email' ? value.toLowerCase() : value;
+    const lowercasedValue = name === "email" ? value.toLowerCase() : value;
 
     setFormData({
       ...formData,
@@ -42,6 +41,7 @@ function LoginComponent() {
   return (
     <div className="center-container">
       <h2 className="login-header">Login</h2>
+      
       {isLoading ? (
         <CircularProgress />
       ) : (
@@ -63,15 +63,21 @@ function LoginComponent() {
             onChange={handleInputChange}
             name="password"
           />
+          
           <br />
           <Button
             type="submit"
             variant="contained"
             color="primary"
-            style={{ marginTop: "23px", fontFamily: "Edu TAS Beginner, cursive" }}
+            style={{
+              marginTop: "23px",
+              fontFamily: "Edu TAS Beginner, cursive",
+            }}
           >
             Login
           </Button>
+          <br />
+          {error && <p className="error-message">{error}</p>}
         </form>
       )}
     </div>
@@ -79,4 +85,3 @@ function LoginComponent() {
 }
 
 export default LoginComponent;
-
