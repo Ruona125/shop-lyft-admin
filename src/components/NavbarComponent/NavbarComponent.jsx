@@ -125,7 +125,7 @@ function NavbarComponent() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div" style={{ fontFamily: "Quicksand, sans-serif" }}>
-            Bucollection
+            Shop Lyft
           </Typography>
           {/* <Typography variant="h6" noWrap component="div" style={{ fontFamily: "Quicksand, sans-serif", marginLeft: 'auto' }}>
             {user.email}
