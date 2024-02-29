@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../Redux/authActions";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -77,6 +77,7 @@ function LoginComponent() {
             Login
           </Button>
           <br />
+          <p><Link style={{textDecoration:"none"}}  to={"/signup"}>Don't have an account, Sign Up</Link></p>
           {error && <p className="error-message">{error}</p>}
         </form>
       )}

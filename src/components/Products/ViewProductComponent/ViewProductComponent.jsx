@@ -15,7 +15,7 @@ const ViewProductComponent = () => {
   const [visibleProducts, setVisibleProducts] = useState(8); // Number of products to display initially
 
   useEffect(() => {
-    const url = "https://api.bucollections.com/admin/product";
+    const url = "http://64.23.187.18:8000/admin/product";
     const headers = {
       "Content-Type": "application/json",
       Authorization: localStorage.getItem("token"),

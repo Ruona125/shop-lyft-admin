@@ -11,8 +11,8 @@ const ModifyOrderComponent = () => {
   const {id} = useParams();
 
   useEffect(() => {
-    // https://api.bucollections.com/
-    const url = `https://api.bucollections.com/order/${id}`;
+    // http://64.23.187.18:8000/
+    const url = `http://64.23.187.18:8000/order/${id}`;
     const headers = {
       "Content-Type": "application/json",
       Authorization: localStorage.getItem("token")

@@ -6,8 +6,8 @@ export const loginUser = (userData) => async (dispatch) => {
   try {
     // Make an API request to the login endpoint
 
-    // https://api.bucollections.com/
-    const response = await fetch('https://api.bucollections.com/login', {
+    // http://64.23.187.18:8000/
+    const response = await fetch('http://64.23.187.18:8000/login', {
 
       method: 'POST',
       headers: {

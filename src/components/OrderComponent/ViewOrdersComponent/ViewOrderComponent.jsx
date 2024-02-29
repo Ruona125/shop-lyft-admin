@@ -73,7 +73,7 @@ function ViewOrderComponent() {
 
   const fetchData = () => {
     // Fetch the data from the API using Axios
-    const apiUrl = "https://api.bucollections.com/user/order";
+    const apiUrl = "http://64.23.187.18:8000/user/order";
     const headers = {
       "Content-Type": "application/json",
       Authorization: localStorage.getItem("token"),
@@ -96,7 +96,7 @@ function ViewOrderComponent() {
 
   const handleUpdate = () => {
     // Make a PUT request to update the status
-    const apiUrl = `https://api.bucollections.com/order/${selectedRow._id}`;
+    const apiUrl = `http://64.23.187.18:8000/order/${selectedRow._id}`;
     const headers = {
       "Content-Type": "application/json",
       Authorization: localStorage.getItem("token"),

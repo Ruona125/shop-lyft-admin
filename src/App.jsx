@@ -10,6 +10,7 @@ import ViewCertainProduct from "./pages/ViewCertainProdcut/ViewCertainProduct";
 import CreateProductComponent from "./components/Products/CreateProductComponent/CreateProductComponent";
 import ViewUser from "./pages/ViewUser/ViewUser";
 import AuthHandlerComponent from "./components/AuthHandlerComponent/AuthHandlerComponent";
+import SignUp from "./pages/SignUp/SignUp";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -19,6 +20,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           {/* <Route path="/" element={<HomePage />} /> */}
           <Route
             path="/modify-order/:id"

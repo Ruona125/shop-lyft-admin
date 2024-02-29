@@ -4,9 +4,9 @@ import axios from 'axios';
 
 export const fetchData = createAsyncThunk('data/fetchData', async () => {
 <<<<<<< HEAD
-  const response = await axios.get(https://api.bucollections.com/test');
+  const response = await axios.get(http://64.23.187.18:8000/test');
 =======
-  const response = await axios.get('https://api.bucollections.com/test');
+  const response = await axios.get('http://64.23.187.18:8000/test');
 >>>>>>> f8993fcea858e9c75aea3e40f1c8bb302d5ad547
   return response.data;
 });

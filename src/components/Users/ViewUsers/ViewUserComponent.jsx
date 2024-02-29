@@ -42,7 +42,7 @@ const ViewUserComponent = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const apiUrl = "https://api.bucollections.com/users";
+    const apiUrl = "http://64.23.187.18:8000/users";
     const headers = {
       "Content-Type": "application/json",
       Authorization: localStorage.getItem("token"),
