@@ -26,7 +26,7 @@ const ModifyProductComponent = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const url = `http://64.23.187.18:8000/product/${id}`;
+    const url = `https://shoplyft.meetruona.com/product/${id}`;
     const headers = {
       "Content-Type": "application/json",
       Authorization: localStorage.getItem("token"),
@@ -46,7 +46,7 @@ const ModifyProductComponent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = `http://64.23.187.18:8000/product/${id}`;
+    const url = `https://shoplyft.meetruona.com/product/${id}`;
     const data = {
       name: name,
       category: category,

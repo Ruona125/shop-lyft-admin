@@ -23,7 +23,7 @@ const CreateProductComponent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = "http://64.23.187.18:8000/product";
+    const url = "https://shoplyft.meetruona.com/product";
     const formData = new FormData();
     formData.append("name", name);
     formData.append("category", category);

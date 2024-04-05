@@ -25,7 +25,7 @@ const SignUpComponent = () => {
         e.preventDefault();
     
         try {
-          const response = await fetch('http://64.23.187.18:8000/admin/register', {
+          const response = await fetch('https://shoplyft.meetruona.com/admin/register', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

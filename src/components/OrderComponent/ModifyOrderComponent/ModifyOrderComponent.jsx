@@ -11,8 +11,8 @@ const ModifyOrderComponent = () => {
   const {id} = useParams();
 
   useEffect(() => {
-    // http://64.23.187.18:8000/
-    const url = `http://64.23.187.18:8000/order/${id}`;
+    // https://shoplyft.meetruona.com/
+    const url = `https://shoplyft.meetruona.com/order/${id}`;
     const headers = {
       "Content-Type": "application/json",
       Authorization: localStorage.getItem("token")

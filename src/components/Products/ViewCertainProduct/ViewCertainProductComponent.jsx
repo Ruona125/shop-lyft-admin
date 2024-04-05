@@ -61,7 +61,7 @@ const ViewCertainProductComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://64.23.187.18:8000/product/${id}`);
+        const response = await axios.get(`https://shoplyft.meetruona.com/product/${id}`);
         setCertainProduct(response.data);
         // console.log(response.data);
       } catch (error) {
@@ -71,7 +71,7 @@ const ViewCertainProductComponent = () => {
 
     const fetchRating = async () => {
       try {
-        const apiUrl = `http://64.23.187.18:8000/rating/${id}`;
+        const apiUrl = `https://shoplyft.meetruona.com/rating/${id}`;
         const headers = {
           "Content-Type": "application/json",
           Authorization: localStorage.getItem("token"),
@@ -86,7 +86,7 @@ const ViewCertainProductComponent = () => {
 
     const fetchReviews = async () => {
       try {
-        const apiUrl = `http://64.23.187.18:8000/review/${id}`;
+        const apiUrl = `https://shoplyft.meetruona.com/review/${id}`;
         const headers = {
           "Content-Type": "application/json",
           Authorization: localStorage.getItem("token"),

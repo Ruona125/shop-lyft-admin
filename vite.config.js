@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   // server: {
   //   proxy: {
-  //     '/api':'http://64.23.187.18:8000/'
+  //     '/api':'https://shoplyft.meetruona.com/'
   //   }
   // }
 })
