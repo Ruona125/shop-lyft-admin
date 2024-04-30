@@ -131,6 +131,23 @@ const ModifyProductComponent = () => {
             <br />
             <br />
 
+            <TextField
+              id="outlined-basic"
+              label="name"
+              variant="outlined"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              InputLabelProps={{
+                style: {
+                  color: "#1976D2",
+                  fontFamily: "Edu TAS Beginner, cursive",
+                },
+              }}
+            />
+            <br />
+            <br />
+
             {/* <TextField
               id="outlined-basic"
               label="ratings"
